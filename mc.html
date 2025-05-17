@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THREE TITANS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body, h1, h2, h3, p, button {
+      margin: 0; padding: 0; font-weight: normal;
+    }
+
+    /* Colors */
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #111827;
+      --color-primary: #3b82f6;
+      --color-primary-hover: #2563eb;
+      --color-card-bg: #f9fafb;
+      --color-shadow: rgba(59, 130, 246, 0.25);
+      --color-toggle-bg: #e0e7ff;
+    }
+    [data-theme="dark"] {
+      --color-bg: #0f172a;
+      --color-text: #f8fafc;
+      --color-primary: #3b82f6;
+      --color-primary-hover: #60a5fa;
+      --color-card-bg: #1e293b;
+      --color-shadow: rgba(96, 165, 250, 0.3);
+      --color-toggle-bg: #1e293b;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    main {
+      flex: 1 0 auto;
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      user-select: none;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2.75rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+      color: var(--color-primary);
+      text-shadow: 0 2px 5px var(--color-shadow);
+    }
+
+    header p {
+      font-weight: 600;
+      color: var(--color-text);
+      opacity: 0.75;
+      font-size: 1.125rem;
+    }
+
+    #toggle-theme-btn {
+      background-color: var(--color-toggle-bg);
+      border: none;
+      cursor: pointer;
+      border-radius: 9999px;
+      padding: 0.55rem 1.4rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-primary);
+      box-shadow: 0 0 8px var(--color-shadow);
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      margin-top: 2rem;
+      user-select: none;
+    }
+    #toggle-theme-btn:hover {
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--color-primary);
+    }
+
+    .tutorial-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .tutorial-card {
+      background-color: var(--color-card-bg);
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px var(--color-shadow);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tutorial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px var(--color-shadow);
+    }
+
+    .tutorial-card h2 {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .tutorial-card p {
+      flex-grow: 1;
+      color: var(--color-text);
+      opacity: 0.85;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .tutorial-card iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 0.75rem;
+      border: none;
+      box-shadow: 0 6px 16px var(--color-shadow);
+      transition: box-shadow 0.3s ease;
+      pointer-events: none;
+    }
+    .tutorial-card:hover iframe {
+      box-shadow: 0 12px 32px var(--color-shadow);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: var(--color-text);
+      opacity: 0.6;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .tutorial-card iframe {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>THREE TITANS</h1>
+    <p>Master Redstone, Builds, Survival & More</p>
+    <button id="toggle-theme-btn" aria-label="Toggle Dark Mode" onclick="toggleTheme()">Toggle Dark Mode</button>
+  </header>
+
+  <main>
+    <div class="tutorial-list">
+      <article class="tutorial-card" tabindex="0">
+        <h2>Secret Redstone Door</h2>
+        <p>Learn how to create a hidden piston door in survival Minecraft using simple redstone components.</p>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Secret Redstone Door Tutorial" allowfullscreen></iframe>
+      </article>
+
+      <article class="tutorial-card" tabindex="0">
+        <h2>Top 5 Survival Base Ideas</h2>
+        <p>These base designs are both functional and aesthetic for your Minecraft survival world.</p>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Top 5 Survival Base Ideas" allowfullscreen></iframe>
+      </article>
+
+      <article class="tutorial-card" tabindex="0">
+        <h2>Efficient Farming Techniques</h2>
+        <p>Maximize your crop yields with these easy-to-build farms and automated systems.</p>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Efficient Farming Techniques" allowfullscreen></iframe>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 THREE TITANS. All rights reserved.
+  </footer>
+
+  <script>
+        function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('theme', nextTheme);
+    }
+
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })
+
+    ();
+
+
+  
+  </script>
+</body>
+</html>
